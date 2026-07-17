@@ -1,0 +1,39 @@
+---
+import { site } from "../config/site";
+---
+
+<section id="about" class="mx-auto max-w-6xl px-5 py-16 sm:py-20">
+  <div class="grid items-center gap-10 md:grid-cols-2">
+    <div
+      class="flex aspect-4/3 items-center justify-center rounded-3xl bg-sand/60 text-center"
+    >
+      <!-- Placeholder for a photo of Virginia / the shop.
+           Drop an image in /public and swap this block for:
+           <img src="/virginia.jpg" alt="Virginia Hays" class="h-full w-full rounded-3xl object-cover" /> -->
+      <div class="p-8">
+        <div class="text-5xl">✂️🐕</div>
+        <p class="mt-3 text-sm text-muted">Photo coming soon</p>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="text-3xl font-700 text-ink sm:text-4xl">
+        Meet {site.groomer}
+      </h2>
+      <p class="mt-5 text-lg leading-relaxed text-muted">
+        {site.about}
+      </p>
+      <div class="mt-7 flex flex-wrap gap-3 text-sm font-600">
+        <span class="rounded-full bg-white px-4 py-2 text-ink shadow-sm"
+          >Self-owned &amp; operated</span
+        >
+        <span class="rounded-full bg-white px-4 py-2 text-ink shadow-sm"
+          >Low-stress grooming</span
+        >
+        <span class="rounded-full bg-white px-4 py-2 text-ink shadow-sm"
+          >Local to Elkhart</span
+        >
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,32 @@
+---
+import { site } from "../config/site";
+---
+
+<header
+  class="sticky top-0 z-50 border-b border-sand/80 bg-cream/90 backdrop-blur"
+>
+  <div
+    class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3"
+  >
+    <a href="#top" class="flex items-center gap-2">
+      <span aria-hidden="true" class="text-2xl">🐾</span>
+      <span class="font-display text-lg font-700 text-ink sm:text-xl">
+        {site.name}
+      </span>
+    </a>
+
+    <nav class="hidden items-center gap-7 text-sm font-500 text-muted md:flex">
+      <a href="#services" class="transition hover:text-brand">Services</a>
+      <a href="#gallery" class="transition hover:text-brand">Gallery</a>
+      <a href="#about" class="transition hover:text-brand">About</a>
+      <a href="#contact" class="transition hover:text-brand">Contact</a>
+    </nav>
+
+    <a
+      href={`tel:${site.contact.phoneRaw}`}
+      class="rounded-full bg-brand px-4 py-2 text-sm font-600 text-white shadow-sm transition hover:bg-brand-600"
+    >
+      <span class="hidden sm:inline">Call </span>{site.contact.phone}
+    </a>
+  </div>
+</header>

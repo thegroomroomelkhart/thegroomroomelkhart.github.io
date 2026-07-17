@@ -1,0 +1,22 @@
+---
+import { site } from "../config/site";
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-sand bg-cream">
+  <div
+    class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-5 py-8 text-sm text-muted sm:flex-row"
+  >
+    <p class="flex items-center gap-2">
+      <span aria-hidden="true">🐾</span>
+      <span class="font-display font-600 text-ink">{site.name}</span>
+      <span>· {site.location}</span>
+    </p>
+    <p>
+      &copy; {year} {site.name}. Grooming with love.
+    </p>
+    <a href={`tel:${site.contact.phoneRaw}`} class="text-brand hover:underline">
+      {site.contact.phone}
+    </a>
+  </div>
+</footer>

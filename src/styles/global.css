@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   THEME TOKENS
+   Colors and fonts for the whole site. Change a value here to re-skin
+   everything. Tailwind turns these into classes like `bg-cream`, `text-brand`.
+   ========================================================================== */
+@theme {
+  --color-cream: #fbf7f1;
+  --color-sand: #f0e7d8;
+  --color-ink: #2b2723;
+  --color-muted: #6b6157;
+  --color-brand: #c07a45;
+  --color-brand-600: #a9663a;
+  --color-brand-700: #8f5330;
+  --color-sage: #6e8e74;
+
+  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-body: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display);
+}

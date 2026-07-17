@@ -1,0 +1,58 @@
+---
+import "@fontsource/poppins/500.css";
+import "@fontsource/poppins/600.css";
+import "@fontsource/poppins/700.css";
+import "../styles/global.css";
+import { site } from "../config/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${site.name} — Dog Grooming in ${site.location}`,
+  description = site.tagline,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph / social sharing -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={site.url} />
+
+    <!-- Local business structured data (helps Google understand the business) -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "PetGroomer",
+        name: site.name,
+        description: site.tagline,
+        telephone: site.contact.phone,
+        url: site.url,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: site.contact.address,
+          addressLocality: site.contact.city,
+          addressRegion: site.contact.state,
+          postalCode: site.contact.zip,
+          addressCountry: "US",
+        },
+      })}
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
