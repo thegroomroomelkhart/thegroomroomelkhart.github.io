@@ -45,21 +45,17 @@ import { directionsUrl } from "../config/links";
         href={`tel:${site.contact.phoneRaw}`}
         class="rounded-full bg-brand px-7 py-3 text-base font-600 text-white shadow-lg transition hover:bg-brand-600"
       >
-        Book by phone — {site.contact.phone}
-      </a>
-      <a
-        href="#services"
-        class="rounded-full border border-white/40 bg-white/10 px-7 py-3 text-base font-600 text-white backdrop-blur transition hover:bg-white/20"
-      >
-        See services
+        Book by phone: {site.contact.phone}
       </a>
       <a
         href={directionsUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="rounded-full border border-white/40 bg-white/10 px-7 py-3 text-base font-600 text-white backdrop-blur transition hover:bg-white/20"
+        aria-label="Get directions"
+        class="rounded-full border border-white/40 bg-white/10 px-5 py-3 text-base font-600 text-white backdrop-blur transition hover:bg-white/20 sm:px-7"
       >
-        📍 Get directions
+        <span class="text-lg sm:hidden" aria-hidden="true">🗺️</span>
+        <span class="hidden sm:inline">📍 Get directions</span>
       </a>
     </div>
 

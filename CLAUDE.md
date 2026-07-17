@@ -3,6 +3,14 @@
 Marketing site for The Groom Room, a dog grooming business (owner: Virginia Hays)
 in Elkhart, Indiana. Static Astro + Tailwind v4 site, deployed to GitHub Pages.
 
+## Content style rules
+
+- **Never use em dashes (—) in any user-visible website copy.** Use a comma,
+  colon, period, or middot (·) instead. This applies to page text, headings,
+  button labels, meta titles/descriptions, alt text, and config strings that get
+  rendered. En dashes (–) in numeric/day ranges (e.g. "8:00am – 5:00pm",
+  "Tuesday–Saturday") are fine and not covered by this rule.
+
 ## Where things live
 
 - **`src/config/site.ts`** — ALL business content (name, services, hours,

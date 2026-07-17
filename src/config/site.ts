@@ -26,9 +26,10 @@ export const site = {
   experienceSince: 2002,
 
   /** Small caption shown at the bottom of the hero photo. The dog is Jesse,
-   *  Virginia's own Airedale terrier, who has passed away. Add the years when
-   *  known, e.g. "In loving memory of Jesse (2008–2021) …". */
-  heroPhotoCaption: "In loving memory of Jesse — Virginia's own Airedale terrier 🐾",
+   *  Virginia's own Airedale terrier. Jesse passed away on March 21, 2010.
+   *  (Per Virginia, the date is noted here but intentionally NOT shown on the
+   *  site for now; add it to the caption text below if that changes.) */
+  heroPhotoCaption: "In loving memory of Jesse, Virginia's own Airedale terrier 🐾",
 
   /** Public URL of the site (used for SEO tags + sitemap). */
   url: "https://thegroomroomelkhart.com",
