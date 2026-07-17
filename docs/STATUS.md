@@ -47,8 +47,10 @@ Stack: **Astro 7 + Tailwind v4**, static, deployed to **GitHub Pages** (free).
 2. Repo Settings → Pages → Source: **GitHub Actions**. First deploy runs.
 3. Preview at the free `*.github.io` URL and confirm it looks right.
 4. (Optional now, or later) Add the Google hours secrets; add the Behold feed URL.
-5. DNS: `public/CNAME` is set to `thegroomroomelkhart.com`. Point the domain's
-   DNS at GitHub Pages (4 A records + a `www` CNAME) and retire the Raspberry Pi.
+5. DNS: when ready to use the real domain, re-add `public/CNAME` containing
+   `thegroomroomelkhart.com` (it was removed so the github.io preview wouldn't
+   redirect to the still-on-Pi domain). Then point the domain's DNS at GitHub
+   Pages (4 A records + a `www` CNAME) and retire the Raspberry Pi.
 
 ## Notes to remember
 
