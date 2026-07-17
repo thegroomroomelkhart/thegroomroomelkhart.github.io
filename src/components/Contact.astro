@@ -1,13 +1,10 @@
 ---
 import { site } from "../config/site";
 import { getHours } from "../config/getHours";
+import { directionsUrl } from "../config/links";
 
 const { contact } = site;
 const { hours } = getHours();
-const fullAddress = `${contact.address} ${contact.city}, ${contact.state} ${contact.zip}`;
-const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-  `${site.name} ${fullAddress}`,
-)}`;
 ---
 
 <section id="contact" class="bg-white/60 py-16 sm:py-20">
@@ -59,7 +56,7 @@ const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURICompo
           </div>
         </dl>
         <a
-          href={mapUrl}
+          href={directionsUrl}
           target="_blank"
           rel="noopener noreferrer"
           class="mt-5 inline-block text-sm font-600 text-brand hover:underline"

@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import heroImg from "../assets/airedale-hero.jpg";
 import { site } from "../config/site";
+import { directionsUrl } from "../config/links";
 ---
 
 <section id="top" class="relative isolate overflow-hidden">
@@ -25,11 +26,6 @@ import { site } from "../config/site";
   <div
     class="mx-auto flex max-w-6xl flex-col items-center px-5 py-28 text-center sm:py-36"
   >
-    <p
-      class="mb-5 inline-block rounded-full bg-white/15 px-4 py-1 text-sm font-600 text-white ring-1 ring-white/25 backdrop-blur"
-    >
-      🐾 {site.location}
-    </p>
     <h1
       class="max-w-3xl text-4xl font-700 leading-tight text-white drop-shadow-sm sm:text-6xl"
     >
@@ -51,6 +47,14 @@ import { site } from "../config/site";
         class="rounded-full border border-white/40 bg-white/10 px-7 py-3 text-base font-600 text-white backdrop-blur transition hover:bg-white/20"
       >
         See services
+      </a>
+      <a
+        href={directionsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="rounded-full border border-white/40 bg-white/10 px-7 py-3 text-base font-600 text-white backdrop-blur transition hover:bg-white/20"
+      >
+        📍 Get directions
       </a>
     </div>
 

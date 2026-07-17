@@ -1,5 +1,9 @@
 ---
 import { site } from "../config/site";
+
+// Recalculated on every build (the site rebuilds twice daily), so this number
+// ticks up on its own each year — no manual editing.
+const years = new Date().getFullYear() - site.experienceSince;
 ---
 
 <section id="about" class="mx-auto max-w-6xl px-5 py-16 sm:py-20">
@@ -20,8 +24,22 @@ import { site } from "../config/site";
       <h2 class="text-3xl font-700 text-ink sm:text-4xl">
         Meet {site.groomer}
       </h2>
+
+      <p class="mt-4 flex items-baseline gap-2 text-brand">
+        <span class="font-display text-5xl font-700 leading-none">{years}</span>
+        <span class="text-lg font-600 leading-tight">
+          years of grooming<br />experience
+        </span>
+      </p>
+
       <p class="mt-5 text-lg leading-relaxed text-muted">
         {site.about}
+      </p>
+      <p class="mt-4 text-lg leading-relaxed text-muted">
+        Grooming dogs in Elkhart since {site.experienceSince}, Virginia brings
+        more than {years} years of hands-on experience to every appointment —
+        every coat type, every temperament, every breed. That depth means a
+        calmer, safer groom and a finish that keeps owners coming back.
       </p>
       <div class="mt-7 flex flex-wrap gap-3 text-sm font-600">
         <span class="rounded-full bg-white px-4 py-2 text-ink shadow-sm"

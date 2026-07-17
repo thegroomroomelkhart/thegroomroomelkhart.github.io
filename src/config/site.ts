@@ -21,6 +21,10 @@ export const site = {
   /** Town/region, used in a few places for local SEO. */
   location: "Elkhart, Indiana",
 
+  /** Year Virginia started grooming. Years of experience is calculated from
+   *  this automatically, so it stays current on its own. */
+  experienceSince: 2002,
+
   /** Public URL of the site (used for SEO tags + sitemap). */
   url: "https://thegroomroomelkhart.com",
 
