@@ -5,33 +5,38 @@ import { site } from "../config/site";
 import { directionsUrl } from "../config/links";
 ---
 
-<section id="top" class="relative isolate overflow-hidden">
+<section
+  id="top"
+  class="relative isolate flex min-h-[88vh] flex-col overflow-hidden"
+>
   <!-- Airedale hero photo (auto-optimized to webp + responsive sizes) -->
   <Image
     src={heroImg}
-    alt="A happy, freshly groomed Airedale terrier"
+    alt="Jesse, a happy Airedale terrier"
     widths={[768, 1280, 1920]}
     sizes="100vw"
     loading="eager"
     fetchpriority="high"
-    class="absolute inset-0 -z-20 h-full w-full object-cover object-[center_28%]"
+    class="absolute inset-0 -z-20 h-full w-full object-cover object-[center_20%]"
   />
-  <!-- Warm dark gradient so text stays readable over the photo -->
+  <!-- Gradient is dark at the bottom (behind the text) and clears toward the top
+       so Jesse's face stays bright and visible. -->
   <div
     aria-hidden="true"
-    class="absolute inset-0 -z-10 bg-gradient-to-t from-ink/90 via-ink/55 to-ink/45"
+    class="absolute inset-0 -z-10 bg-gradient-to-t from-ink/92 via-ink/45 to-ink/5"
   >
   </div>
 
+  <!-- Content anchored to the lower third so it covers less of the photo. -->
   <div
-    class="mx-auto flex max-w-6xl flex-col items-center px-5 py-28 text-center sm:py-36"
+    class="mx-auto flex w-full max-w-6xl flex-1 flex-col items-center justify-end px-5 pb-10 pt-32 text-center"
   >
     <h1
-      class="max-w-3xl text-4xl font-700 leading-tight text-white drop-shadow-sm sm:text-6xl"
+      class="max-w-3xl text-4xl font-700 leading-tight text-white drop-shadow-md sm:text-6xl"
     >
       Happy dogs, <span class="text-brand">beautiful grooms.</span>
     </h1>
-    <p class="mt-6 max-w-xl text-lg text-white/90 drop-shadow-sm">
+    <p class="mt-6 max-w-xl text-lg text-white/90 drop-shadow">
       {site.tagline}
     </p>
 
@@ -60,6 +65,11 @@ import { directionsUrl } from "../config/links";
 
     <p class="mt-6 text-sm text-white/75">
       Open Tuesday–Saturday · By appointment
+    </p>
+
+    <!-- Memorial caption for Jesse -->
+    <p class="mt-8 text-xs italic text-white/60">
+      {site.heroPhotoCaption}
     </p>
   </div>
 </section>
