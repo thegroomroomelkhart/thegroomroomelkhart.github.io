@@ -49,25 +49,46 @@ publishes to GitHub Pages. Custom domain in `public/CNAME`. The workflow also
 runs on a twice-daily `schedule` (cron) to refresh Google hours. No server to
 manage.
 
-## Development
+## Environment & workflow (Windows) — read this first
 
-When starting the dev server, use background mode:
+This project is developed on Windows via the Claude Code PowerShell/Bash tools.
+These are the non-obvious gotchas that will otherwise waste your time:
 
-```
-astro dev --background
-```
+- **Node/npm are NOT on PATH.** They were installed with winget to
+  `C:\Program Files\nodejs`, but spawned shells don't see them. Prepend PATH at
+  the start of every command that needs node/npm/npx:
+  `$env:Path = "C:\Program Files\nodejs;" + $env:Path`
+  The GitHub CLI is likewise at `C:\Program Files\GitHub CLI` (add it too when
+  using `git`/`gh`).
+- **Dev server:** run `npm run dev` (with PATH prepended). Astro's dev server
+  **daemonizes** — the foreground command returns after printing the URL, and
+  the server keeps running. Manage it with `astro dev stop|status|logs`.
+  - `preview_start` from `.claude/launch.json` does NOT work here: it spawns npm
+    without the node PATH, so astro can't find node. Use `npm run dev` instead.
+  - Do NOT invoke `node node_modules\astro\astro.js` — that path doesn't exist.
+    Go through `npm run dev` (or `npx astro`).
+  - To view on a phone / other LAN device: `npm run dev -- --host`, then browse
+    to `http://<machine-LAN-IP>:4321`. Windows Firewall on a "Public" network
+    profile blocks this; the user must add an inbound rule for TCP 4321 (an
+    admin action — don't do it for them).
+- **`git commit`:** PowerShell here-strings (`@'...'@`) break `git commit -m`
+  (the message gets split into bogus pathspecs). Write the message to a temp
+  file and use `git commit -F <file>` instead. This works reliably.
+- **Build "exit code 255" is a false alarm.** PowerShell wraps Node's stderr
+  progress output as a NativeCommandError and reports 255 even when the build
+  succeeded. Trust the `[build] Complete!` line, not the exit code.
+- **LF→CRLF git warnings** on commit are harmless; ignore them.
+- **Preview screenshots hang on external network requests** in the sandboxed
+  browser (no outbound internet). This is why the font is self-hosted rather
+  than loaded from Google Fonts — keep runtime assets local.
 
-Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
+## Reference docs
 
-## Documentation
+- Full Astro docs: https://docs.astro.build
+- Styling / Tailwind: https://docs.astro.build/en/guides/styling/
+- Astro components: https://docs.astro.build/en/basics/astro-components/
 
-Full documentation: https://docs.astro.build
+## Current status & handoff
 
-Consult these guides before working on related tasks:
-
-- [Adding pages, dynamic routes, or middleware](https://docs.astro.build/en/guides/routing/)
-- [Working with Astro components](https://docs.astro.build/en/basics/astro-components/)
-- [Using React, Vue, Svelte, or other framework components](https://docs.astro.build/en/guides/framework-components/)
-- [Adding or managing content](https://docs.astro.build/en/guides/content-collections/)
-- [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
-- [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
+See **`docs/STATUS.md`** for what's done, what's pending (GitHub account,
+Instagram/Behold connection, Google hours key), and the go-live checklist.
