@@ -90,5 +90,8 @@ These are the non-obvious gotchas that will otherwise waste your time:
 
 ## Current status & handoff
 
-See **`docs/STATUS.md`** for what's done, what's pending (GitHub account,
-Instagram/Behold connection, Google hours key), and the go-live checklist.
+**Live at https://thegroomroomelkhart.github.io/** (repo:
+`thegroomroomelkhart/thegroomroomelkhart.github.io`, public). `gh` is
+authenticated on this machine; pushing to `main` auto-deploys via Actions.
+See **`docs/STATUS.md`** for what's pending (Instagram/Behold, Google hours key,
+custom-domain DNS) and the go-live checklist.

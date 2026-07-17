@@ -15,6 +15,15 @@ cheap (free hosting), and easy for an AI to edit.
 
 Stack: **Astro 7 + Tailwind v4**, static, deployed to **GitHub Pages** (free).
 
+## LIVE
+
+- **URL:** https://thegroomroomelkhart.github.io/
+- **Repo:** `thegroomroomelkhart/thegroomroomelkhart.github.io` (public user site).
+- **Deploy:** push to `main` → GitHub Actions builds + deploys automatically
+  (~1 min). `gh` is already authenticated on this dev machine (device flow).
+- CI uses **Node 22** (Astro 7 needs >=22.12; the workflow was fixed from an
+  initial Node 20 default).
+
 ## Done
 
 - Homepage: hero (Airedale photo of Jesse), services, live Instagram gallery
@@ -24,41 +33,29 @@ Stack: **Astro 7 + Tailwind v4**, static, deployed to **GitHub Pages** (free).
   placeholder until a feed URL is set.
 - Live Google hours integration — coded; `scripts/fetch-hours.mjs` + twice-daily
   scheduled rebuild in `.github/workflows/deploy.yml`. Falls back to `site.ts`.
-- Design decisions: kept the warm caramel palette (matches Jesse's photo) over
-  the old site's default pink. Self-hosted font. No em dashes in copy (see
-  CLAUDE.md content rules).
-- Git repo initialized; work committed locally. **Not yet pushed to GitHub.**
+- Design: warm caramel palette (matches Jesse's photo), self-hosted font, no em
+  dashes in copy (see CLAUDE.md content rules).
+- GitHub account created, repo pushed, GitHub Pages live and auto-deploying.
 
-## Pending / blocked (all waiting on the owner)
+## Pending (all waiting on the owner; any order, no rush)
 
-1. **GitHub account** — Virginia is creating one. Needed to push the repo and
-   turn on GitHub Pages. Nothing is deployed until this exists.
-2. **Instagram account** — being created (owner's mother). Once it exists and is
-   a Business/Creator account, connect it at behold.so, then paste the JSON feed
-   URL into `site.instagram.beholdFeedUrl` (+ `profileUrl`, `handle`).
-3. **Google hours key** — owner OK'd this. Follow `docs/google-hours-setup.md`
-   to create the API key + Place ID and add them as GitHub Actions secrets
+1. **Instagram feed** — once the IG account exists (being created) and is a
+   Business/Creator account, connect it at behold.so and paste the JSON feed URL
+   into `site.instagram.beholdFeedUrl` (+ `profileUrl`, `handle`), then push.
+2. **Google hours** — owner OK'd this. Follow `docs/google-hours-setup.md` to
+   create the API key + Place ID and add them as repo **Actions secrets**
    (`GOOGLE_MAPS_API_KEY`, `GOOGLE_PLACE_ID`). Effectively free; a hard daily
    quota cap is part of the setup.
-
-## Go-live checklist (in order)
-
-1. Create GitHub account + repo; push this project.
-2. Repo Settings → Pages → Source: **GitHub Actions**. First deploy runs.
-3. Preview at the free `*.github.io` URL and confirm it looks right.
-4. (Optional now, or later) Add the Google hours secrets; add the Behold feed URL.
-5. DNS: when ready to use the real domain, re-add `public/CNAME` containing
-   `thegroomroomelkhart.com` (it was removed so the github.io preview wouldn't
-   redirect to the still-on-Pi domain). Then point the domain's DNS at GitHub
-   Pages (4 A records + a `www` CNAME) and retire the Raspberry Pi.
+3. **Custom domain** — currently the site is on github.io only. To use
+   `thegroomroomelkhart.com`: re-add `public/CNAME` with that domain (removed so
+   the preview wouldn't redirect to the still-on-Pi domain), then point the
+   domain DNS at GitHub Pages (4 A records + a `www` CNAME) and retire the Pi.
 
 ## Notes to remember
 
 - The dog in the hero is **Jesse**, Virginia's own Airedale, who passed away
-  **March 21, 2010**. The date is recorded here and in `site.ts` but is
-  intentionally NOT shown on the site (owner's call). Caption is editable via
-  `site.heroPhotoCaption`.
+  **March 21, 2010**. Recorded here and in `site.ts` but intentionally NOT shown
+  on the site (owner's call). Caption editable via `site.heroPhotoCaption`.
 - Services in `site.ts` are sensible **placeholders** with no prices — Virginia
   needs to confirm the real list. Google cannot supply services (only hours).
-- Start year for experience is `site.experienceSince` (2002) — confirm with
-  Virginia if exact.
+- Start year for experience is `site.experienceSince` (2002) — confirm exact.
