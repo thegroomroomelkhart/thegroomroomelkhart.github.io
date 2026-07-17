@@ -1,46 +1,60 @@
 ---
+import { Image } from "astro:assets";
+import heroImg from "../assets/airedale-hero.jpg";
 import { site } from "../config/site";
 ---
 
-<section id="top" class="relative overflow-hidden">
-  <!-- soft decorative background -->
+<section id="top" class="relative isolate overflow-hidden">
+  <!-- Airedale hero photo (auto-optimized to webp + responsive sizes) -->
+  <Image
+    src={heroImg}
+    alt="A happy, freshly groomed Airedale terrier"
+    widths={[768, 1280, 1920]}
+    sizes="100vw"
+    loading="eager"
+    fetchpriority="high"
+    class="absolute inset-0 -z-20 h-full w-full object-cover object-[center_28%]"
+  />
+  <!-- Warm dark gradient so text stays readable over the photo -->
   <div
     aria-hidden="true"
-    class="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-sand/70 via-cream to-cream"
+    class="absolute inset-0 -z-10 bg-gradient-to-t from-ink/90 via-ink/55 to-ink/45"
   >
   </div>
 
-  <div class="mx-auto max-w-6xl px-5 py-20 text-center sm:py-28">
+  <div
+    class="mx-auto flex max-w-6xl flex-col items-center px-5 py-28 text-center sm:py-36"
+  >
     <p
-      class="mb-4 inline-block rounded-full bg-sage/15 px-4 py-1 text-sm font-600 text-sage"
+      class="mb-5 inline-block rounded-full bg-white/15 px-4 py-1 text-sm font-600 text-white ring-1 ring-white/25 backdrop-blur"
     >
       🐾 {site.location}
     </p>
     <h1
-      class="mx-auto max-w-3xl text-4xl font-700 leading-tight text-ink sm:text-6xl"
+      class="max-w-3xl text-4xl font-700 leading-tight text-white drop-shadow-sm sm:text-6xl"
     >
       Happy dogs, <span class="text-brand">beautiful grooms.</span>
     </h1>
-    <p class="mx-auto mt-6 max-w-xl text-lg text-muted">
+    <p class="mt-6 max-w-xl text-lg text-white/90 drop-shadow-sm">
       {site.tagline}
     </p>
 
     <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
       <a
         href={`tel:${site.contact.phoneRaw}`}
-        class="rounded-full bg-brand px-7 py-3 text-base font-600 text-white shadow-md transition hover:bg-brand-600"
+        class="rounded-full bg-brand px-7 py-3 text-base font-600 text-white shadow-lg transition hover:bg-brand-600"
       >
         Book by phone — {site.contact.phone}
       </a>
       <a
         href="#services"
-        class="rounded-full border border-ink/15 bg-white/60 px-7 py-3 text-base font-600 text-ink transition hover:border-brand hover:text-brand"
+        class="rounded-full border border-white/40 bg-white/10 px-7 py-3 text-base font-600 text-white backdrop-blur transition hover:bg-white/20"
       >
         See services
       </a>
     </div>
 
-    <p class="mt-6 text-sm text-muted">
+    <p class="mt-6 text-sm text-white/75">
       Open Tuesday–Saturday · By appointment
     </p>
   </div>

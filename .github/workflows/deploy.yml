@@ -1,17 +1,22 @@
 name: Deploy to GitHub Pages
 
-# Builds the Astro site and publishes it to GitHub Pages on every push to main.
 on:
+  # Rebuild + deploy on every push to main.
   push:
     branches: [main]
-  workflow_dispatch: # lets you trigger a rebuild manually from the Actions tab
+  # Twice-daily rebuild so Google Business Profile hours (incl. holiday hours)
+  # stay current. Times are UTC: 11:00 & 23:00 ≈ 7am & 7pm Eastern.
+  schedule:
+    - cron: "0 11,23 * * *"
+  # Lets you trigger a rebuild by hand from the Actions tab.
+  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow one deploy at a time; don't cancel an in-progress one.
+# One deploy at a time; don't cancel an in-progress one.
 concurrency:
   group: pages
   cancel-in-progress: false
@@ -22,8 +27,32 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Build Astro site
-        uses: withastro/action@v3
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch latest hours from Google
+        run: node scripts/fetch-hours.mjs
+        env:
+          GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
+          GOOGLE_PLACE_ID: ${{ secrets.GOOGLE_PLACE_ID }}
+
+      - name: Build site
+        run: npm run build
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
 
   deploy:
     needs: build

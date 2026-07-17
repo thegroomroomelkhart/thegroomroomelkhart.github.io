@@ -11,8 +11,8 @@ file, and Claude can do the technical work for you.
 
 ## ✏️ Changing the content (the easy stuff)
 
-Almost everything you'd want to change — services, prices, hours, phone number,
-the "about" blurb — lives in **one file**:
+Almost everything you'd want to change — services, prices, phone number, the
+"about" blurb — lives in **one file**:
 
 ```
 src/config/site.ts
@@ -23,6 +23,19 @@ site updates from there. Or just tell Claude "change X to Y" and it'll do it.
 
 Once a change is pushed to GitHub, the site rebuilds and goes live on its own in
 about a minute.
+
+---
+
+## 🕐 Hours from Google (optional)
+
+Hours can pull **automatically from Virginia's Google Business Profile**, so they
+(and any holiday closures) only need to be updated in Google. The site refreshes
+twice a day on its own. Setup is one-time and effectively free — see
+**[docs/google-hours-setup.md](docs/google-hours-setup.md)**.
+
+Until that's set up, hours come from the `hours` list in `src/config/site.ts`.
+(Note: the **services** list can't come from Google — Google doesn't share it —
+so services always live in `site.ts`.)
 
 ---
 

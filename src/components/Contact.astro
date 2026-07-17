@@ -1,7 +1,9 @@
 ---
 import { site } from "../config/site";
+import { getHours } from "../config/getHours";
 
-const { contact, hours } = site;
+const { contact } = site;
+const { hours } = getHours();
 const fullAddress = `${contact.address} ${contact.city}, ${contact.state} ${contact.zip}`;
 const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
   `${site.name} ${fullAddress}`,

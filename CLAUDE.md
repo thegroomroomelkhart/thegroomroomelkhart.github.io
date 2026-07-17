@@ -23,10 +23,23 @@ in Elkhart, Indiana. Static Astro + Tailwind v4 site, deployed to GitHub Pages.
 `site.instagram.beholdFeedUrl`. When that's empty it renders a friendly
 "coming soon" placeholder grid. See the setup steps in `site.ts` and README.
 
+## Hours (Google Business Profile integration)
+
+Hours can come live from Google. `scripts/fetch-hours.mjs` runs before each build
+(needs `GOOGLE_MAPS_API_KEY` + `GOOGLE_PLACE_ID` env/secrets), calls the Places
+API, and writes `src/data/hours.json`. `src/config/getHours.ts` returns those
+live hours if present, else falls back to `site.hours` from `site.ts`. Components
+read hours via `getHours()`, never `site.hours` directly. If the key is missing
+or Google errors, the build still succeeds on the fallback. Setup steps:
+`docs/google-hours-setup.md`. Services are NOT available from Google — they stay
+in `site.ts`.
+
 ## Deploy
 
 Push to `main` → GitHub Actions (`.github/workflows/deploy.yml`) builds and
-publishes to GitHub Pages. Custom domain in `public/CNAME`. No server to manage.
+publishes to GitHub Pages. Custom domain in `public/CNAME`. The workflow also
+runs on a twice-daily `schedule` (cron) to refresh Google hours. No server to
+manage.
 
 ## Development
 
