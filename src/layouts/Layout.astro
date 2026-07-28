@@ -49,6 +49,9 @@ const {
           postalCode: site.contact.zip,
           addressCountry: "US",
         },
+        ...(site.instagram.profileUrl
+          ? { sameAs: [site.instagram.profileUrl] }
+          : {}),
       })}
     />
   </head>

@@ -126,9 +126,9 @@ export const site = {
    * Until this is filled in, the site shows a friendly "coming soon" gallery.
    */
   instagram: {
-    beholdFeedUrl: "", // <-- paste the Behold JSON feed URL here
-    profileUrl: "", // e.g. "https://instagram.com/thegroomroomelkhart"
-    handle: "", // e.g. "@thegroomroomelkhart"
+    beholdFeedUrl: "https://feeds.behold.so/u2KnswnFcEg26UVEhec1",
+    profileUrl: "https://instagram.com/thegroomroomelkhart",
+    handle: "@thegroomroomelkhart",
     maxPosts: 12,
   },
 } as const;
