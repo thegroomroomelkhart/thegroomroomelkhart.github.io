@@ -42,7 +42,11 @@ so services always live in `site.ts`.)
 ## 📸 Turning on the live Instagram feed
 
 The homepage has a gallery that automatically shows the newest Instagram posts.
-It's off until the Instagram account is connected. To turn it on:
+
+> ✅ **Already connected** to `@thegroomroomelkhart` via Behold. The steps below
+> are kept for reference (e.g. if the account or feed ever needs reconnecting).
+
+To connect it (or reconnect it):
 
 1. Make sure the grooming Instagram is a **Business or Creator** account
    (free to switch inside the Instagram app: Settings → Account type).
@@ -67,6 +71,9 @@ tokens to keep renewing**. This is what keeps the site maintenance-free.
 ---
 
 ## 🌐 Going live (one-time setup)
+
+> ✅ **Done.** The site is live at **https://thegroomroomelkhart.com** with HTTPS,
+> and pushes to `main` auto-deploy. The steps below record how it was set up.
 
 The site deploys automatically, but the first time it needs to be connected to
 GitHub Pages and the domain. High-level steps (Claude can walk you through each):

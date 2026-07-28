@@ -90,8 +90,10 @@ These are the non-obvious gotchas that will otherwise waste your time:
 
 ## Current status & handoff
 
-**Live at https://thegroomroomelkhart.github.io/** (repo:
-`thegroomroomelkhart/thegroomroomelkhart.github.io`, public). `gh` is
+**Live at https://thegroomroomelkhart.com** (custom domain, HTTPS enforced;
+`www` and the github.io URL redirect to it). Repo:
+`thegroomroomelkhart/thegroomroomelkhart.github.io` (public). `gh` is
 authenticated on this machine; pushing to `main` auto-deploys via Actions.
-See **`docs/STATUS.md`** for what's pending (Instagram/Behold, Google hours key,
-custom-domain DNS) and the go-live checklist.
+The **Instagram feed is connected** (Behold, `@thegroomroomelkhart`). See
+**`docs/STATUS.md`** for what remains (Google hours API key; retiring the old
+Pi).
