@@ -17,7 +17,9 @@ Stack: **Astro 7 + Tailwind v4**, static, deployed to **GitHub Pages** (free).
 
 ## LIVE
 
-- **URL:** https://thegroomroomelkhart.github.io/
+- **URL:** https://thegroomroomelkhart.com (custom domain live w/ HTTPS as of
+  2026-07-27; also reachable at https://thegroomroomelkhart.github.io/, which
+  redirects). `www` 301-redirects to the apex.
 - **Repo:** `thegroomroomelkhart/thegroomroomelkhart.github.io` (public user site).
 - **Deploy:** push to `main` → GitHub Actions builds + deploys automatically
   (~1 min). `gh` is already authenticated on this dev machine (device flow).
@@ -39,17 +41,23 @@ Stack: **Astro 7 + Tailwind v4**, static, deployed to **GitHub Pages** (free).
 
 ## Pending (all waiting on the owner; any order, no rush)
 
-1. **Instagram feed** — once the IG account exists (being created) and is a
-   Business/Creator account, connect it at behold.so and paste the JSON feed URL
-   into `site.instagram.beholdFeedUrl` (+ `profileUrl`, `handle`), then push.
-2. **Google hours** — owner OK'd this. Follow `docs/google-hours-setup.md` to
+1. **Google hours** — owner OK'd this. Follow `docs/google-hours-setup.md` to
    create the API key + Place ID and add them as repo **Actions secrets**
    (`GOOGLE_MAPS_API_KEY`, `GOOGLE_PLACE_ID`). Effectively free; a hard daily
    quota cap is part of the setup.
-3. **Custom domain** — currently the site is on github.io only. To use
-   `thegroomroomelkhart.com`: re-add `public/CNAME` with that domain (removed so
-   the preview wouldn't redirect to the still-on-Pi domain), then point the
-   domain DNS at GitHub Pages (4 A records + a `www` CNAME) and retire the Pi.
+2. **Retire the Pi** — the old WordPress site on the Raspberry Pi no longer
+   serves the domain (DNS now points at GitHub Pages). Safe to power down.
+
+## Done since handoff (2026-07-27)
+
+- **Instagram feed** — CONNECTED. `@thegroomroomelkhart` linked via behold.so;
+  feed URL set in `site.instagram.beholdFeedUrl`. Also added the IG profile to
+  `sameAs` structured data.
+- **Custom domain** — LIVE. `public/CNAME` re-added; GoDaddy DNS repointed (4 A
+  records to GitHub's 185.199.108-111.153 + `www` CNAME to
+  `thegroomroomelkhart.github.io`). Custom domain set in repo Settings > Pages
+  (the API PUT for cname fails first-time with "certificate does not exist yet";
+  use the web UI). SSL cert auto-issued, Enforce HTTPS on.
 
 ## Notes to remember
 
